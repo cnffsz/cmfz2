@@ -32,4 +32,10 @@ public class AdminServiceimpl implements AdminService {
         List<Admin> adminList = adminDao.queryAll();
         return adminList;
     }
+
+    @Override
+    public Admin queryOne(String username, String password) {
+        Admin admin = adminDao.queryOne(username, password);
+        return admin;
+    }
 }

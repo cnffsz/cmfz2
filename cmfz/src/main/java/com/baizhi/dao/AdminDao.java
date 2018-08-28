@@ -1,6 +1,7 @@
 package com.baizhi.dao;
 
 import com.baizhi.entity.Admin;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -16,4 +17,8 @@ public interface AdminDao {
 
     //  查询
     public List<Admin> queryAll();
+
+    // 查一个
+    public Admin queryOne(@Param("username") String username, @Param("password") String password);
+
 }

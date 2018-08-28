@@ -1,6 +1,7 @@
 package com.baizhi.service;
 
 import com.baizhi.entity.Admin;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -16,4 +17,8 @@ public interface AdminService {
 
     //  查询
     public List<Admin> queryAll();
+
+    // 查一个
+    public Admin queryOne(String username, String password);
+
 }

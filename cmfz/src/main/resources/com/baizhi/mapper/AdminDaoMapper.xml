@@ -7,6 +7,12 @@
       FROM  admin
     </select>
 
+    <select id="queryOne" resultType="Admin">
+        SELECT id,username,password
+        FROM  admin
+        WHERE username=#{username} AND password=#{password}
+    </select>
+
     <delete id="delete" parameterType="int">
       DELETE
       FROM admin
