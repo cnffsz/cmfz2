@@ -9,8 +9,49 @@
     <script type="text/javascript" src="../js/jquery.min.js"></script>
     <script type="text/javascript" src="../js/jquery.easyui.min.js"></script>
     <script type="text/javascript" src="../js/easyui-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="../js/jquery.edatagrid.js"></script>
+    <script type="text/javascript" src="../js/datagrid-detailview.js"></script>
     <script type="text/javascript">
         <!--菜单处理-->
+        $(function () {
+            $.ajax({
+                url: "${pageContext.request.contextPath}/menu/queryAll",
+                type: "post",
+                dataType: "JSON",
+                success: function (data) {
+                    $.each(data, function (index, first) {
+                        var c = "";
+                        $.each(first.child, function (index1, second) {
+                            c += "<p style='text-align: center'>" +
+                                "<a href='#' data-options=\"iconCls:'icon-search'\" class='easyui-linkbutton' onclick=\"addTabs('" + second.iconCls + "','" + second.title + "','" + second.href + "')\">" + second.title + "</a></p>";
+                        })
+
+                        $('#aa').accordion('add', {
+                            title: first.title,
+                            content: c,
+                            iconCls: first.iconCls,
+                            selected: false
+                        });
+                    })
+                }
+            })
+        });
+        function addTabs(iconCls, title, href) {
+            /*选项卡*/
+            var flag = $("#tt").tabs("exists", title)
+            if (flag) {
+                $("#tt").tabs("select", title)
+                console.log(href)
+            } else {
+                $("#tt").tabs('add', {
+                    title: title,
+                    selected: true,
+                    closable: true,
+                    href: "${pageContext.request.contextPath}" + href
+                });
+            }
+        }
+
     </script>
 
 </head>
@@ -33,7 +74,10 @@
 <div data-options="region:'west',title:'导航菜单',split:true" style="width:220px;">
     <div id="aa" class="easyui-accordion" data-options="fit:true">
 
+
     </div>
+
+
 </div>
 <div data-options="region:'center'">
     <div id="tt" class="easyui-tabs" data-options="fit:true,narrow:true,pill:true">
