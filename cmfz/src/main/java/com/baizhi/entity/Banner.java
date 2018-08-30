@@ -1,6 +1,7 @@
 package com.baizhi.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * Created by 晨妃 on 2018/8/29.
@@ -11,7 +12,7 @@ public class Banner implements Serializable {
     private String imgPath;
     private String description;
     private String status;
-    private String createDate;
+    private Date createDate;
 
     @Override
     public String toString() {
@@ -21,7 +22,7 @@ public class Banner implements Serializable {
                 ", imgPath='" + imgPath + '\'' +
                 ", description='" + description + '\'' +
                 ", status='" + status + '\'' +
-                ", createDate='" + createDate + '\'' +
+                ", createDate=" + createDate +
                 '}';
     }
 
@@ -65,11 +66,11 @@ public class Banner implements Serializable {
         this.status = status;
     }
 
-    public String getCreateDate() {
+    public Date getCreateDate() {
         return createDate;
     }
 
-    public void setCreateDate(String createDate) {
+    public void setCreateDate(Date createDate) {
         this.createDate = createDate;
     }
 
@@ -77,7 +78,7 @@ public class Banner implements Serializable {
 
     }
 
-    public Banner(Integer id, String title, String imgPath, String description, String status, String createDate) {
+    public Banner(Integer id, String title, String imgPath, String description, String status, Date createDate) {
 
         this.id = id;
         this.title = title;

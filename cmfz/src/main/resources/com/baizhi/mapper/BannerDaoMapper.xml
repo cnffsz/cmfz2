@@ -4,7 +4,7 @@
 <mapper namespace="com.baizhi.dao.BannerDao">
     <insert id="save" parameterType="Banner">
         INSERT INTO banner
-        VALUES(#{title},#{imgPath},#{description},#{status},#{createDate})
+        VALUES(NULL ,#{title},#{imgPath},#{description},#{status},#{createDate })
     </insert>
 
     <delete id="delete" parameterType="Integer">

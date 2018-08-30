@@ -30,8 +30,12 @@ public class ServiceTest extends BaseTest {
         List<Banner> bannerList = bannerService.queryByPage(1, 2);
         System.out.println(bannerList);
     }
-
     @Test
-    public void testBannerAdd() {
+    public void testBannerSave() {
+        Banner banner = new Banner();
+        banner.setCreateDate(new Date());
+        bannerService.save(banner);
+        System.out.println("ok");
     }
+
 }
