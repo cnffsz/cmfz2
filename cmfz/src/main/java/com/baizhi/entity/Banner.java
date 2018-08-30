@@ -1,7 +1,6 @@
 package com.baizhi.entity;
 
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * Created by 晨妃 on 2018/8/29.

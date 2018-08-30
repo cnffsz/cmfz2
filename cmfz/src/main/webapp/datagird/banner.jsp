@@ -8,12 +8,47 @@
             text: "添加",
             handler: function () {
                 //录入数据
+                $("#dia").dialog({
+                    title: "添加轮播图",
+                    width: 550,
+                    height: 350,
+                    iconCls: 'icon-man',
+                    draggable: false,
+                    buttons: [{
+                        text: '保存',
+                        iconCls: 'icon-save'
+                    }, {
+                        text: '关闭',
+                        iconCls: 'icon-cancel'
+                    }],
+                    toolbar: [{
+                        text: '编辑',
+                        iconCls: 'icon-edit'
+                    }, {
+                        text: '帮助',
+                        iconCls: 'icon-help'
+                    }
+                    ]
+                });
+
+                $("#form").form({
+                    url: "${pageContext.request.contextPath}/banner/save",
+                    onSubmit: function (param) {
+                        return true;
+                    },
+                    success: function (data) {
+                    },
+                });
+                //hander function()-----------
             }
         }, '-', {
             text: "删除",
             iconCls: 'icon-cancel',
             handler: function () {
-                // 删除数据
+                // ---------删除数据
+
+
+                // ---------删除数据
             }
         }, '-', {
             text: "修改",
@@ -75,10 +110,41 @@
                     '</td>' +
                     '</tr></table>';
             }
-
         });
     })
 </script>
 
 <table id="dg"></table>
 
+
+<div id="dia" style="display: none">
+	<form id="form">
+		<table align="center">
+			<tr>
+				<td>title：</td>
+				<td><input id="title" name="banner.title" type="text" data-options="requried:true"
+						   style="width: 150px"/></td>
+			</tr>
+			<tr>
+				<td>imgPath：</td>
+				<td><input id="imgPath" name="banner.imgPath" type="text" data-options="requried:true"
+						   style="width: 150px"/></td>
+			</tr>
+			<tr>
+				<td>description：</td>
+				<td><input id="description" name="banner.description" type="text" data-options="requried:true"
+						   style="width: 150px"/></td>
+			</tr>
+			<tr>
+				<td>status：</td>
+				<td><input id="status" name="banner.status" type="text" data-options="requried:true"
+						   style="width: 150px"/></td>
+			</tr>
+			<tr>
+				<td>createDate：</td>
+				<td><input id="createDate" name="banner.createDate" type="text" data-options="requried:true"
+						   style="width: 150px"/></td>
+			</tr>
+		</table>
+	</form>
+</div>
