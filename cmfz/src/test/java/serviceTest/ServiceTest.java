@@ -38,4 +38,10 @@ public class ServiceTest extends BaseTest {
         System.out.println("ok");
     }
 
+    @Test
+    public void testBannerDelete() {
+        bannerService.delete(5);
+        System.out.println("ok----------------------");
+    }
+
 }

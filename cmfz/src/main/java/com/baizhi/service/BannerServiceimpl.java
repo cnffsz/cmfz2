@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -20,6 +21,8 @@ public class BannerServiceimpl implements BannerService {
     @Override
     public void save(Banner banner) {
 
+        banner.setCreateDate(new Date());
+        System.out.println(new Date());
         bannerDao.save(banner);
     }
 
@@ -45,8 +48,7 @@ public class BannerServiceimpl implements BannerService {
 
         int begin = (page - 1) * rows;// 从下标为多少的信息开始检索
         int end = page * rows;// 到下标为多少的数据结束
-        System.out.println(begin);
-        System.out.println(end);
+
         List<Banner> bannerList = bannerDao.queryByPage(begin, end);
         return bannerList;
     }

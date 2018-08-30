@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.baizhi.dao.AlbumDao">
+    <insert id="save" parameterType="Album">
+        INSERT INTO album
+        VALUES(#{id} ,#{title},#{count},#{corverimg},#{score},#{author},#{broaderCast},
+                #{brief},#{publicDate},#{createDate},#{status})
+    </insert>
+
+    <select id="queryAll" resultType="Album">
+        SELECT id,title,count,corverimg,score,author,broaderCast,brief,publicDate,createDate,status
+        FROM album
+    </select>
+
+    <select id="queryByPage" resultType="Album">
+      SELECT id,title,count,corverimg,score,author,broaderCast,brief,publicDate,createDate,status
+      FROM  album
+      limit #{begin},#{end}
+
+    </select>
+
+    <select id="count" resultType="int">
+        select count(*)
+        FROM album
+    </select>
+</mapper>
+
+
+
+
+
+
+

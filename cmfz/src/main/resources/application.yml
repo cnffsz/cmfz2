@@ -21,6 +21,9 @@ spring:
     encoding:
       force: true
       charset: UTF-8
+  jackson:
+    date-format: yyyy-MM-dd
+    time-zone: GMT+8
 mybatis:
   type-aliases-package: com.baizhi.entity
   mapper-locations: classpath:/com/baizhi/mapper/*.xml
