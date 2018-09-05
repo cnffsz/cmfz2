@@ -8,9 +8,36 @@
                 #{brief},#{publicDate},#{createDate},#{status})
     </insert>
 
-    <select id="queryAll" resultType="Album">
-        SELECT id,title,count,corverimg,score,author,broaderCast,brief,publicDate,createDate,status
-        FROM album
+    <resultMap id="AlbumMap" type="Album">
+        <id column="aid" property="id"/>
+        <result column="atitle" property="title"/>
+        <result column="acount" property="count"/>
+        <result column="acorverimg" property="corverimg"/>
+        <result column="ascore" property="score"/>
+        <result column="aauthor" property="author"/>
+        <result column="abroaderCast" property="broaderCast"/>
+        <result column="abrief" property="brief"/>
+        <result column="apublicDate" property="publicDate"/>
+        <result column="acreateDate" property="createDate"/>
+        <result column="astatus" property="status"/>
+        <collection property="children" ofType="Chapter">
+            <id column="cid" property="id"/>
+            <result column="ctitle" property="title"/>
+            <result column="cduration" property="duration"/>
+            <result column="csize" property="size"/>
+            <result column="caudioPath" property="audioPath"/>
+            <result column="calbum_id" property="albumId"/>
+        </collection>
+    </resultMap>
+    <select id="queryAll" resultMap="AlbumMap">
+        SELECT a.id aid,a.title atitle,a.count acount,a.corverimg acorverimg,a.score ascore,
+        a.author aauthor,a.broaderCast abroaderCast,a.brief abrief,a.publicDate apublicDate,
+        a.createDate acreateDate,a.status astatus,
+        c.id cid,c.title ctitle,c.duration cduration,c.size csize,c.audioPath caudioPath,c.album_id calbum_id
+
+        FROM album a
+        JOIN chapter c
+        ON a.id = c.album_id
     </select>
 
     <select id="queryByPage" resultType="Album">

@@ -1,37 +1,36 @@
 package com.baizhi.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * Created by 晨妃 on 2018/8/30.
  */
 public class Chapter implements Serializable {
-    private String id;
+    private Integer id;
     private String title;
     private String duration;
     private String size;
     private String audioPath;
-
-    private Album children;
-
+    private String albumId;
 
     @Override
     public String toString() {
         return "Chapter{" +
-                "id='" + id + '\'' +
+                "id=" + id +
                 ", title='" + title + '\'' +
                 ", duration='" + duration + '\'' +
                 ", size='" + size + '\'' +
                 ", audioPath='" + audioPath + '\'' +
-                ", children=" + children +
+                ", albumId='" + albumId + '\'' +
                 '}';
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -67,25 +66,25 @@ public class Chapter implements Serializable {
         this.audioPath = audioPath;
     }
 
-    public Album getChildren() {
-        return children;
+    public String getAlbumId() {
+        return albumId;
     }
 
-    public void setChildren(Album children) {
-        this.children = children;
+    public void setAlbumId(String albumId) {
+        this.albumId = albumId;
     }
 
     public Chapter() {
 
     }
 
-    public Chapter(String id, String title, String duration, String size, String audioPath, Album children) {
+    public Chapter(Integer id, String title, String duration, String size, String audioPath, String albumId) {
 
         this.id = id;
         this.title = title;
         this.duration = duration;
         this.size = size;
         this.audioPath = audioPath;
-        this.children = children;
+        this.albumId = albumId;
     }
 }

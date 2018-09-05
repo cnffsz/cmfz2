@@ -15,7 +15,7 @@ public class User implements Serializable {
     private String sex;
     private String province;
     private String city;
-    private String sign;
+    private String sign;//签名
     private Integer phoneNum;
     private String password;
     private String salt;

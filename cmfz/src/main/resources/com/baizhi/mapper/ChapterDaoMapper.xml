@@ -3,27 +3,21 @@
 
 <mapper namespace="com.baizhi.dao.ChapterDao">
     <insert id="save" parameterType="Chapter">
-        INSERT INTO banner
-        VALUES(#{id},#{title},#{duration},#{size},#{audioPath},#{children.id})
+        INSERT INTO chapter
+        VALUES(NULL,#{title},#{duration},#{size},#{audioPath},#{albumId})
     </insert>
 
+
     <select id="queryAll" resultType="Chapter">
-      SELECT id,title,duration,size,audioPath,album_id
+        SELECT *
       FROM  chapter
-    </select>
-
-
-    <select id="queryByPage" resultType="Chapter">
-        SELECT id,title,imgPath,description,status,createDate
-        FROM chapter
-        limit #{begin},#{end}
-
     </select>
 
     <select id="count" resultType="int">
         select count(*)
         FROM   chapter
     </select>
+
 </mapper>
 
 

@@ -24,7 +24,7 @@
             handler: function () {
                 //使当前选中行可编辑模式
                 var row = $("#dg").edatagrid("getSelected");
-
+                //console.log(row)
                 if (row != null) {
 
                     var index = $("#dg").edatagrid("getRowIndex", row)

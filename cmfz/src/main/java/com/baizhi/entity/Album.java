@@ -2,6 +2,7 @@ package com.baizhi.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by 晨妃 on 2018/8/30.
@@ -19,6 +20,9 @@ public class Album implements Serializable {
     private Date createDate;
     private String status;
 
+    private List<Chapter> children;
+
+
     @Override
     public String toString() {
         return "Album{" +
@@ -33,6 +37,7 @@ public class Album implements Serializable {
                 ", publicDate=" + publicDate +
                 ", createDate=" + createDate +
                 ", status='" + status + '\'' +
+                ", children=" + children +
                 '}';
     }
 
@@ -124,11 +129,19 @@ public class Album implements Serializable {
         this.status = status;
     }
 
+    public List<Chapter> getChildren() {
+        return children;
+    }
+
+    public void setChildren(List<Chapter> children) {
+        this.children = children;
+    }
+
     public Album() {
 
     }
 
-    public Album(String id, String title, Integer count, String corverimg, Double score, String author, String broaderCast, String brief, Date publicDate, Date createDate, String status) {
+    public Album(String id, String title, Integer count, String corverimg, Double score, String author, String broaderCast, String brief, Date publicDate, Date createDate, String status, List<Chapter> children) {
 
         this.id = id;
         this.title = title;
@@ -141,5 +154,6 @@ public class Album implements Serializable {
         this.publicDate = publicDate;
         this.createDate = createDate;
         this.status = status;
+        this.children = children;
     }
 }
